@@ -39,7 +39,7 @@ class Ventana1(QMainWindow):
         self.fondo = QLabel(self)
 
         # Definimos la imagen de fondo:
-        self.imagenFondo = QPixmap('imagenes/vibrante.jpg')
+        self.imagenFondo = QPixmap('imagenes/fondo-diseno.jpg')
 
         # Definimos la imagen de fondo:
         self.fondo.setPixmap(self.imagenFondo)
@@ -73,7 +73,7 @@ class Ventana1(QMainWindow):
         self.letrero1.setFont(QFont("Andale Mono", 23))
 
         # Le ponemos el color de texto:
-        self.letrero1.setStyleSheet("color: #FFFFFF;")
+        self.letrero1.setStyleSheet("color: #800080;")
 
         # Agregamos el letrero en la primera fila:
         self.ladoIzquierdo.addRow(self.letrero1)
@@ -90,13 +90,13 @@ class Ventana1(QMainWindow):
                               "\ncon asterisco son obligatorios.")
 
         # Le asignamos el tipo de letra:
-        self.letrero2.setFont(QFont("Andale Mono", 13))
+        self.letrero2.setFont(QFont("Andale Mono", 11))
 
         # Le ponemos el color de texto y márgenes:
-        self.letrero2.setStyleSheet("color: #FFFFFF; margin-bottom: 40px;"
+        self.letrero2.setStyleSheet("color: #000000; margin-bottom: 40px;"
                                     "margin-top: 20px;"
                                     "padding-bottom: 10px;"
-                                    "border: 2px solid #FFFFFF;"
+                                    "border: 2px solid #000000;"
                                     "border-left: none;"
                                     "border-right: none;"
                                     "border-top: none;")
@@ -155,7 +155,7 @@ class Ventana1(QMainWindow):
         self.botonRegistrar.setFixedWidth(90)
 
         # Le ponemos los estilos:
-        self.botonRegistrar.setStyleSheet("background-color: #008B45;"
+        self.botonRegistrar.setStyleSheet("background-color: #BF3EFF;"
                                           "color: #FFFFFF;"
                                           "padding: 10px;"
                                           "margin-top: 40px;")
@@ -169,7 +169,7 @@ class Ventana1(QMainWindow):
         self.botonLimpiar.setFixedWidth(90)
 
         # Le ponemos los estilos:
-        self.botonLimpiar.setStyleSheet("background-color: #008B45;"
+        self.botonLimpiar.setStyleSheet("background-color: #BF3EFF;"
                                         "color: #FFFFFF;"
                                         "padding: 10px;"
                                         "margin-top: 40px;")
@@ -200,7 +200,7 @@ class Ventana1(QMainWindow):
         self.letrero3.setFont(QFont("Andale Mono", 23))
 
         # Le ponemos el color de texto:
-        self.letrero3.setStyleSheet("color: #FFFFFF;")
+        self.letrero3.setStyleSheet("color: #800080;")
 
         # Agregamos el letrero en la primera fila:
         self.ladoDerecho.addRow(self.letrero3)
@@ -217,13 +217,13 @@ class Ventana1(QMainWindow):
                               "\ncon asterisco son obligatorios.")
 
         # Le asignamos el tipo de letra:
-        self.letrero4.setFont(QFont("Andale Mono", 13))
+        self.letrero4.setFont(QFont("Andale Mono", 11))
 
         # Le ponemos el color de texto y márgenes:
-        self.letrero4.setStyleSheet("color: #FFFFFF; margin-bottom: 40px;"
+        self.letrero4.setStyleSheet("color: #000000; margin-bottom: 40px;"
                                     "margin-top: 20px;"
                                     "padding-bottom: 10px;"
-                                    "border: 2px solid #FFFFFF;"
+                                    "border: 2px solid #000000;"
                                     "border-left: none;"
                                     "border-right: none;"
                                     "border-top: none;")
@@ -321,7 +321,7 @@ class Ventana1(QMainWindow):
         self.botonRegistrar.setFixedWidth(90)
 
         # Le ponemos los estilos:
-        self.botonBuscar.setStyleSheet("background-color: #008B45;"
+        self.botonBuscar.setStyleSheet("background-color: #BF3EFF;"
                                        "color: #FFFFFF;"
                                        "padding: 10px;"
                                        "margin-top: 40px;")
@@ -333,7 +333,7 @@ class Ventana1(QMainWindow):
         self.botonRecuperar.setFixedWidth(90)
 
         # Le ponemos los estilos:
-        self.botonRecuperar.setStyleSheet("background-color: #008B45;"
+        self.botonRecuperar.setStyleSheet("background-color: #BF3EFF;"
                                           "color: #FFFFFF;"
                                           "padding: 10px;"
                                           "margin-top: 40px;")
@@ -393,7 +393,7 @@ class Ventana1(QMainWindow):
         self.mensaje = QLabel("")
 
         # Le ponemos estilos al label mensaje:
-        self.mensaje.setStyleSheet("backrogund-color: #008B45; color: #FFFFFF; padding: 10px;")
+        self.mensaje.setStyleSheet("background-color: #E066FF; color: #000000; padding: 10px;")
 
         # Agregamos el label de mensaje:
         self.vertical.addWidget(self.mensaje)

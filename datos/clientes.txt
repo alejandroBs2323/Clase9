@@ -1,3 +1,6 @@
 a;a;a;a;aa,a;a;a;a;a;a;a
 a;a;a;a;aa,a;a;a;a;a;a;a
 manuela jurado;manuela12;12345;12345;1234512345,manuela@gmail.com;como se llama tu mascota;pepe;placa del carro;ASD 345;Año en que murió pelpe;2022
+Alejandro Betancur;Alejogay13;1245;1245;1035971398,alejandro@gmail.com;eres gei?;no;nombre de su madre;milena;nombre de su perra;samanta
+dfbh;dfbh123;123;123;wg,q;aa;a;a;a;aa;a
+Manuela Jurado;manuela11;123;123;1035066378,manuela@gmail.com;nombre de abuelo materno ;Alberto;Nombre de abuela paterna ;Flor Cecilia ;Nombre de su mascota ;Laisy y Pepe
