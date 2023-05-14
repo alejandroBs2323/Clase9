@@ -366,31 +366,6 @@ class Ventana1(QMainWindow):
         # Indicamos que el Layout principal del fondo es horizontal:
         self.fondo.setLayout(self.horizontal)
 
-<<<<<<< HEAD
-
-
-
-
-    # Método del boton limpiar:
-
-    def accion_botonLimpiar(self):
-        self.nombreCompleto.setText("")
-        self.usuario.setText("")
-        self.password.setText("")
-        self.password2.setText("")
-        self.documento.setText("")
-        self.correo.setText("")
-        self.pregunta1.setText("")
-        self.respuesta1.setText("")
-        self.pregunta2.setText("")
-        self.respuesta2.setText("")
-        self.pregunta3.setText("")
-        self.respuesta3.setText("")
-
-    # Método del boton registrar:
-    def accion_botonRegistrar(self):
-=======
->>>>>>> bbaf0e14e88436a42df3f6a7acca3028e2385eda
         # Creamos la ventana de diálogo:
         self.ventanaDialogo = QDialog(None, QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint)
 
@@ -426,8 +401,7 @@ class Ventana1(QMainWindow):
         # Establecemos el layout para la ventana:
         self.ventanaDialogo.setLayout(self.vertical)
 
-        # Variable para controlar que se han ingresado los datos correctos:
-        self.datosCorrectos = True
+
 
     # Método del boton limpiar:
 
@@ -447,6 +421,9 @@ class Ventana1(QMainWindow):
 
     # Método del boton registrar:
     def accion_botonRegistrar(self):
+
+        # Variable para controlar que se han ingresado los datos correctos:
+        self.datosCorrectos = True
 
         # Validamos que los passwords sean iguales:
         if (
@@ -495,7 +472,7 @@ class Ventana1(QMainWindow):
                 + self.usuario.text() + ";"
                 + self.password.text() + ";"
                 + self.password2.text() + ";"
-                + self.documento.text() + ","
+                + self.documento.text() + ";"
                 + self.correo.text() + ";"
                 + self.pregunta1.text() + ";"
                 + self.respuesta1.text() + ";"
@@ -570,7 +547,7 @@ class Ventana1(QMainWindow):
 
                 # Obtenemos del string una lista con 11 datos separados por;
                 lista = linea.split(";")
-
+                print(lista)
                 # Se para si ya no hay más registros en el archivo:
                 if linea == '':
                     break
@@ -642,7 +619,4 @@ if __name__ == '__main__':
 
     ventana1.show()
 
-
     sys.exit(app.exec_())
-
-
