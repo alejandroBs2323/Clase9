@@ -1,3 +1,3 @@
 manuela jurado;manuela12;12345;1234512345;manuela@gmail.com;como se llama tu mascota;pepe;placa del carro;ASD 345;Año en que murió pelpe;2022
 Alejandro Betancur;Alejogay13;1245;1035971398;alejandro@gmail.com;eres gei?;no;nombre de su madre;milena;nombre de su perra;samanta
-Diana V ;Diana23;1234;1234567898;diana@gmail.com;Nombre de su abuela materna ;Flor ;Nombre de su mascota ;Pepe;Nombre de su mamá;Gloria
+

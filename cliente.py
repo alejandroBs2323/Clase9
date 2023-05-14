@@ -11,6 +11,7 @@ class Cliente:
                  respuesta2,
                  pregunta3,
                  respuesta3,
+
                  ):
         self.nombreCompleto = nombreCompleto
         self.usuario = usuario
