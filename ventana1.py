@@ -1,10 +1,5 @@
 import sys
 
-
-from PyQt5 import QtGui
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QHBoxLayout, QApplication
-
 from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtGui import QPixmap, QFont
@@ -16,7 +11,6 @@ from cliente import Cliente
 
 class Ventana1(QMainWindow):
     # Hacer el método de construcción de la ventana:
-
     def __init__(self, parent=None):
         super(Ventana1, self).__init__(parent)
 
@@ -401,8 +395,6 @@ class Ventana1(QMainWindow):
         # Establecemos el layout para la ventana:
         self.ventanaDialogo.setLayout(self.vertical)
 
-
-
     # Método del boton limpiar:
 
     def accion_botonLimpiar(self):
@@ -498,6 +490,12 @@ class Ventana1(QMainWindow):
     # Método del botón buscar:
 
     def accion_botonBuscar(self):
+
+
+        # Variable para controlar si el ingreso de los datos están correctos
+        self.datosCorrectos = True
+
+
         # Establecemos el título de la ventana:
         self.ventanaDialogo.setWindowTitle("Buscar preguntas de validación")
 
@@ -547,8 +545,12 @@ class Ventana1(QMainWindow):
 
                 # Obtenemos del string una lista con 11 datos separados por;
                 lista = linea.split(";")
+
                 print(lista)
-                # Se para si ya no hay más registros en el archivo:
+                # Se para sí ya no hay más registros en el archivo:
+
+
+                # Se para si ya no hay más registros en el archivo
                 if linea == '':
                     break
 
@@ -564,7 +566,8 @@ class Ventana1(QMainWindow):
                     lista[7],
                     lista[8],
                     lista[9],
-                    lista[10],
+                    lista[10]
+
                 )
 
                 # Metemos el objeto en la lista de usuarios:
@@ -605,8 +608,6 @@ class Ventana1(QMainWindow):
 
                 # Hacemos que la ventana de diálogo se vea:
                 self.ventanaDialogo.exec_()
-
-
 
 
 
