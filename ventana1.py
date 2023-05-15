@@ -1,11 +1,12 @@
 import sys
-import self as self
+
 from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtGui import QPixmap, QFont
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QHBoxLayout, QApplication, QFormLayout, QLineEdit, \
     QPushButton, QDialog, QDialogButtonBox, QVBoxLayout
 from cliente import Cliente
+
 
 
 class Ventana1(QMainWindow):
@@ -59,6 +60,7 @@ class Ventana1(QMainWindow):
 
         # Le ponemos las márgenes:
         self.horizontal.setContentsMargins(30, 30, 30, 30)
+
 
         # -------------LAYOUT IZQUIERDO ---------------
         # Creamos el Layout del lado izquierdo:
@@ -212,6 +214,8 @@ class Ventana1(QMainWindow):
         # Establecemos el ancho del label:
         self.letrero4.setFixedWidth(400)
 
+        self.letrero4.setFixedHeight(145)
+
         # Le escribimos el texto:
         self.letrero4.setText("Por favor ingrese la información para recuperar"
                               "\nla contraseña. Los campos marcados"
@@ -350,6 +354,7 @@ class Ventana1(QMainWindow):
         # Agregamos el layout ladoDerecho al layout horizontal
         self.horizontal.addLayout(self.ladoDerecho)
 
+
         # ------------ OJO IMPORTANTE PONER AL FINAL ---------------
 
         # Indicamos que el Layout principal del fondo es horizontal:
@@ -408,27 +413,9 @@ class Ventana1(QMainWindow):
 
     # Método del boton registrar:
     def accion_botonRegistrar(self):
+
         # Variable para controlar que se han ingresado los datos correctos:
         self.datosCorrectos = True
-
-    # Método del boton limpiar:
-
-    def accion_botonLimpiar(self):
-        self.nombreCompleto.setText("")
-        self.usuario.setText("")
-        self.password.setText("")
-        self.password2.setText("")
-        self.documento.setText("")
-        self.correo.setText("")
-        self.pregunta1.setText("")
-        self.respuesta1.setText("")
-        self.pregunta2.setText("")
-        self.respuesta2.setText("")
-        self.pregunta3.setText("")
-        self.respuesta3.setText("")
-
-    # Método del boton registrar:
-    def accion_botonRegistrar(self):
 
         # Validamos que los passwords sean iguales:
         if (
@@ -620,6 +607,7 @@ class Ventana1(QMainWindow):
 
 
 if __name__ == '__main__':
+
     app = QApplication(sys.argv)
 
     ventana1 = Ventana1()
