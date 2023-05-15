@@ -8,7 +8,6 @@ from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QHBoxLayout, QA
 from cliente import Cliente
 
 
-
 class Ventana1(QMainWindow):
     # Hacer el método de construcción de la ventana:
     def __init__(self, parent=None):
@@ -60,7 +59,6 @@ class Ventana1(QMainWindow):
 
         # Le ponemos las márgenes:
         self.horizontal.setContentsMargins(30, 30, 30, 30)
-
 
         # -------------LAYOUT IZQUIERDO ---------------
         # Creamos el Layout del lado izquierdo:
@@ -354,7 +352,6 @@ class Ventana1(QMainWindow):
         # Agregamos el layout ladoDerecho al layout horizontal
         self.horizontal.addLayout(self.ladoDerecho)
 
-
         # ------------ OJO IMPORTANTE PONER AL FINAL ---------------
 
         # Indicamos que el Layout principal del fondo es horizontal:
@@ -413,9 +410,6 @@ class Ventana1(QMainWindow):
 
     # Método del boton registrar:
     def accion_botonRegistrar(self):
-
-        # Variable para controlar que se han ingresado los datos correctos:
-        self.datosCorrectos = True
 
         # Validamos que los passwords sean iguales:
         if (
@@ -490,9 +484,6 @@ class Ventana1(QMainWindow):
     # Método del botón buscar:
 
     def accion_botonBuscar(self):
-
-        # Variable para controlar si el ingreso de los datos están correctos
-        self.datosCorrectos = True
 
         # Establecemos el título de la ventana:
         self.ventanaDialogo.setWindowTitle("Buscar preguntas de validación")
@@ -607,7 +598,6 @@ class Ventana1(QMainWindow):
 
 
 if __name__ == '__main__':
-
     app = QApplication(sys.argv)
 
     ventana1 = Ventana1()
