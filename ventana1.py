@@ -1,5 +1,4 @@
 import sys
-
 import self as self
 from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtCore
@@ -391,8 +390,6 @@ class Ventana1(QMainWindow):
         # Establecemos el layout para la ventana:
         self.ventanaDialogo.setLayout(self.vertical)
 
-
-
     # Método del boton limpiar:
 
     def accion_botonLimpiar(self):
@@ -507,10 +504,8 @@ class Ventana1(QMainWindow):
 
     def accion_botonBuscar(self):
 
-
         # Variable para controlar si el ingreso de los datos están correctos
         self.datosCorrectos = True
-
 
         # Establecemos el título de la ventana:
         self.ventanaDialogo.setWindowTitle("Buscar preguntas de validación")
@@ -565,7 +560,6 @@ class Ventana1(QMainWindow):
                 print(lista)
                 # Se para sí ya no hay más registros en el archivo:
 
-
                 # Se para si ya no hay más registros en el archivo
                 if linea == '':
                     break
@@ -615,17 +609,14 @@ class Ventana1(QMainWindow):
 
             # Si no existe un usuario con este documento:
             if (
-                not existeDocumento
+                    not existeDocumento
             ):
-
                 # Escribimos el texto explicativo:
                 self.mensaje.setText("NO EXISTE un usuario con este documento:\n"
                                      + self.documento.text())
 
                 # Hacemos que la ventana de diálogo se vea:
                 self.ventanaDialogo.exec_()
-
-
 
 
 if __name__ == '__main__':
