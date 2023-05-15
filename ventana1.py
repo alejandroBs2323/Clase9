@@ -490,6 +490,9 @@ class Ventana1(QMainWindow):
 
     def accion_botonBuscar(self):
 
+        # Variable para controlar que se han ingresado los datos correctos:
+        self.datosCorrectos = True
+
         # Establecemos el título de la ventana:
         self.ventanaDialogo.setWindowTitle("Buscar preguntas de validación")
 
@@ -524,7 +527,7 @@ class Ventana1(QMainWindow):
             # Limpiamos el campo del documento:
             self.documento.setText('')
 
-            # Si los datos están correctos
+        # Si los datos están correctos
         if (
                 self.datosCorrectos
         ):
