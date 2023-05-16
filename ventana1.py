@@ -6,6 +6,7 @@ from PyQt5.QtGui import QPixmap, QFont
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QHBoxLayout, QApplication, QFormLayout, QLineEdit, \
     QPushButton, QDialog, QDialogButtonBox, QVBoxLayout
 from cliente import Cliente
+from ventana2 import Ventana2
 
 
 class Ventana1(QMainWindow):
@@ -327,7 +328,7 @@ class Ventana1(QMainWindow):
         self.botonBuscar.setStyleSheet("background-color: #BF3EFF;"
                                        "color: #FFFFFF;"
                                        "padding: 10px;"
-                                       "margin-top: 40px;")
+                                       "margin-top: 10px;")
 
         # Hacemos que el botón buscar tenga su método:
         self.botonBuscar.clicked.connect(self.accion_botonBuscar)
@@ -342,15 +343,39 @@ class Ventana1(QMainWindow):
         self.botonRecuperar.setStyleSheet("background-color: #BF3EFF;"
                                           "color: #FFFFFF;"
                                           "padding: 10px;"
-                                          "margin-top: 40px;")
+                                          "margin-top: 10px;")
 
         # Hacemos que el boton recuperar tenga su método
         self.botonRecuperar.clicked.connect(self.accion_botonRecuperar)
 
         # Agregamos los botones al layout al ladoDerecho:
         self.ladoDerecho.addRow(self.botonBuscar, self.botonRecuperar)
-
         # -----
+
+
+
+        # -----BOTON CONTINUAR--------
+        # Hacemos el botón para pasar a la siguiente ventana:
+        self.botonContinuar = QPushButton("Continuar")
+
+        # Establecemos el ancho del botón:
+        self.botonContinuar.setFixedWidth(90)
+
+        # Le ponemos los estilos:
+        self.botonContinuar.setStyleSheet("background-color: #BF3EFF;"
+                                          "color: #FFFFFF;"
+                                          "padding: 10px;"
+                                          "margin-top: 10px;"
+                                          )
+        # Hacemos que el botón botonContinuar tenga su método:
+        self.botonContinuar.clicked.connect(self.accion_botonContinuar)
+
+        # Agregamso el botón botonContinuar al Layout lado derecho:
+        self.ladoDerecho.addRow(self.botonContinuar)
+
+
+
+
 
         # Agregamos el layout ladoDerecho al layout horizontal
         self.horizontal.addLayout(self.ladoDerecho)
@@ -456,6 +481,7 @@ class Ventana1(QMainWindow):
 
             # Abrimos el archivo en modo agregar escribiendo datos en binario:
             self.file = open('datos/clientes.txt', 'ab')
+
             # Traer el texto de los QLineEdit() y los agrega concatenándolos:
             # Para escribirlos en formato binario UTF-8
             self.file.write(bytes(
@@ -491,11 +517,7 @@ class Ventana1(QMainWindow):
     def accion_botonBuscar(self):
 
 
-        # Variable para controlar que se han ingresado los datos correctos:
-
-
         #Variable para controlar si el ingreso de los datos están correctos
-
         self.datosCorrectos = True
 
         # Establecemos el título de la ventana:
@@ -744,6 +766,15 @@ class Ventana1(QMainWindow):
 
                 # Hacemos que la ventana de diálogo se vea:
                 self.ventanaDialogo.exec_()
+
+
+    # Método del botonContinuar:
+    def accion_botonContinuar(self):
+        self.hide()
+
+        self.ventana2 = Ventana2(self)
+
+        self.ventana2.show()
 
 
 
