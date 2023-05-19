@@ -288,7 +288,7 @@ class Ventana1(QMainWindow):
         self.respuesta2 = QLineEdit()
         self.respuesta2.setFixedWidth(320)
 
-        # Agregamos el campo en el formulario:
+        # Agregamos el campo en el formulario
         self.ladoDerecho.addRow(self.respuesta2)
 
         # -------3

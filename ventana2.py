@@ -16,7 +16,7 @@ class Ventana2(QMainWindow):
         self.ventanaAnterior = anterior
 
         # poner el título:
-        self.setWindowTitle("Usuarios registrados")
+        self.setWindowTitle("Usuarios Registrados")
 
         # Poner el ícono:
         self.setWindowIcon(QtGui.QIcon('imagenes/cflor13.png'))
