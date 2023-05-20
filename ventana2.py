@@ -204,6 +204,40 @@ class Ventana2(QMainWindow):
         # Establecemos para que funcionen todos los botones:
         self.botones.idClicked.connect(self.metodo_accionBotones)
 
+        #-------BOTN FORMA TABULAR--------------------
+
+        # Hacemos el boton para navegar a la ventana de la tabla de usuarios:
+        self.botonFormaTabular = QPushButton("Forma Tabular")
+
+        # Establecemos el ancho del botón
+        self.botonFormaTabular.setFixedWidth(100)
+
+
+        # Establecemos los estilos:
+        self.botonFormaTabular.setStyleSheet("background-color: #BF3EFF;"
+                                              "color: #FFFFFF;"
+                                              "padding: 10px;"
+                                              "margin-top: 10px;")
+
+        # Hacemos que el boton Forma Tabular tenga su método:
+        self.botonFormaTabular.clicked.connect(self.metodo_botonFormaTabular)
+
+        # Metemos en el layout vertical el boton forma Tabular:
+        self.vertical.addWidget(self.botonFormaTabular)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -242,6 +276,11 @@ class Ventana2(QMainWindow):
     def metodo_botonVolver(self):
         self.hide()
         self.ventanaAnterior.show()
+
+    def metodo_botonFormaTabular(self):
+        self.hide()
+        self.ventana3 = Ventana3(self)
+        self.ventana3.show()
 
 
 if __name__ == '__main__':
