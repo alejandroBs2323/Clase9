@@ -5,6 +5,7 @@ from PyQt5.QtGui import QPixmap, QFont
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QVBoxLayout, QApplication, QWidget, QGridLayout, QScrollArea, QButtonGroup, QPushButton
 from PyQt5 import QtGui
 from cliente import Cliente
+from ventana3 import Ventana3
 
 class Ventana2(QMainWindow):
 
