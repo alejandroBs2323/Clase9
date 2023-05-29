@@ -311,7 +311,7 @@ class Ventana1(QMainWindow):
         # Agregamos el letrero en la fila siguiente:
         self.ladoDerecho.addRow(self.labelRespuesta3)
 
-        # Hacemos el campo para ingresar la respuesta1:
+        # Hacemos el campo para ingresar la respuesta3:
         self.respuesta3 = QLineEdit()
         self.respuesta3.setFixedWidth(320)
 
@@ -441,6 +441,9 @@ class Ventana1(QMainWindow):
     # Método del boton registrar:
     def accion_botonRegistrar(self):
 
+        # Variable para controlar si el ingreso de los datos están correctos
+        self.datosCorrectos = True
+
         # Validamos que los passwords sean iguales:
         if (
                 self.password.text() != self.password2.text()
@@ -488,7 +491,6 @@ class Ventana1(QMainWindow):
                 self.nombreCompleto.text() + ";"
                 + self.usuario.text() + ";"
                 + self.password.text() + ";"
-                + self.password2.text() + ";"
                 + self.documento.text() + ";"
                 + self.correo.text() + ";"
                 + self.pregunta1.text() + ";"
