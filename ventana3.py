@@ -1,8 +1,8 @@
 import sys
-
-from PyQt5.QtGui import QPixmap, QFont
+from PyQt5.QtCore import Qt, QSize
+from PyQt5.QtGui import QPixmap, QFont, QIcon
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QVBoxLayout, QScrollArea, QTableWidget, \
-    QTableWidgetItem, QPushButton, QApplication
+    QTableWidgetItem, QPushButton, QApplication, QToolBar, QAction
 from PyQt5 import QtGui
 
 from cliente import Cliente
@@ -106,6 +106,29 @@ class Ventana3(QMainWindow):
         # Establecemos la distribución de los elementos en distribución vertical:
         self.vertical = QVBoxLayout()
 
+        # -----CONSTRUIR EL MENÚ TOOLBAR-----
+
+        self.toolbar = QToolBar('manin toolbar')
+        self.toolbar.setIconSize(QSize(20, 20))
+        self.addToolBar(self.toolbar)
+
+        # -----DELETE------------
+        self.delete = QAction(QIcon('imagenes/delete.png'), '&Delete', self)
+        self.delete.triggered.connect(self.accion_delete)
+        self.toolbar.addAction(self.delete)
+
+        # -----ADD--------------
+        self.add = QAction(QIcon('imagenes/add.png'), '&Add', self)
+        self.add.triggered.connect(self.accion_add)
+        self.toolbar.addAction(self.add)
+
+        # --------INSERT-----------
+        self.insert = QAction(QIcon('imagenes/insert.png'), '&Insert', self)
+        self.insert.triggered.connect(self.accion_insert)
+        self.toolbar.addAction(self.insert)
+
+        # ----FIN MENÚ TOOLBAR-------------
+
         # Hacemos el letrero
         self.letrero1 = QLabel()
 
@@ -149,32 +172,32 @@ class Ventana3(QMainWindow):
         self.tabla.setColumnWidth(9, 150)
         self.tabla.setColumnWidth(10, 150)
 
-
         # Definimos el letrero de la cabecera:
         self.tabla.setHorizontalHeaderLabels(['Nombre',
-                                             'Usuario',
-                                             'Password',
-                                             'Documento',
-                                             'Correo',
-                                             'Pregunta 1',
-                                             'Respuesta1',
-                                             'Pregunta 2',
-                                             'Respuesta2',
-                                             'Pregunta 3',
-                                             'Respuesta3'])
+                                              'Usuario',
+                                              'Password',
+                                              'Documento',
+                                              'Correo',
+                                              'Pregunta 1',
+                                              'Respuesta1',
+                                              'Pregunta 2',
+                                              'Respuesta2',
+                                              'Pregunta 3',
+                                              'Respuesta3'])
 
-
-
-
-        # Establecemos el número de ñas filas:
+        # Establecemos el número de las filas:
         self.tabla.setRowCount(self.numeroUsuarios)
 
         # Llenamos la tabla:
         for u in self.usuarios:
             self.tabla.setItem(self.contador, 0, QTableWidgetItem(u.nombreCompleto))
+            # Hacemos que el nombre no se pueda editar:
+            self.tabla.item(self.contador, 0).setFlags(Qt.ItemIsEnabled)
             self.tabla.setItem(self.contador, 1, QTableWidgetItem(u.usuario))
             self.tabla.setItem(self.contador, 2, QTableWidgetItem(u.password))
             self.tabla.setItem(self.contador, 3, QTableWidgetItem(u.documento))
+            # Hacemos que el documento no se pueda editar:
+            self.tabla.item(self.contador, 3).setFlags(Qt.ItemIsEnabled)
             self.tabla.setItem(self.contador, 4, QTableWidgetItem(u.correo))
             self.tabla.setItem(self.contador, 5, QTableWidgetItem(u.pregunta1))
             self.tabla.setItem(self.contador, 6, QTableWidgetItem(u.respuesta1))
@@ -221,6 +244,15 @@ class Ventana3(QMainWindow):
     def metodo_botonVolver(self):
         self.hide()
         self.ventanaAnterior.show()
+
+    def accion_delete(self):
+        pass
+
+    def accion_add(self):
+        pass
+
+    def accion_insert(self):
+        pass
 
 
 if __name__ == '__main__':
