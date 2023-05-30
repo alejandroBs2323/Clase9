@@ -404,20 +404,6 @@ class Ventana4(QMainWindow):
         # Llamamos el método para que se carguen los datos del usuario en el formulario:
         self.cargar_datos()
 
-    def accion_botonLimpiar(self):
-        self.nombreCompleto.setText("")
-        self.usuario.setText("")
-        self.password.setText("")
-        self.password2.setText("")
-        self.documento.setText("")
-        self.correo.setText("")
-        self.pregunta1.setText("")
-        self.respuesta1.setText("")
-        self.pregunta2.setText("")
-        self.respuesta2.setText("")
-        self.pregunta3.setText("")
-        self.respuesta3.setText("")
-
     def accion_botonEdita(self):
 
         # Variable para controlar que se han ingresado los datos correctos:
@@ -582,7 +568,19 @@ class Ventana4(QMainWindow):
                     break
 
             self.file.close()
-
+    def accion_botonLimpiar(self):
+        self.nombreCompleto.setText("")
+        self.usuario.setText("")
+        self.password.setText("")
+        self.password2.setText("")
+        self.documento.setText("")
+        self.correo.setText("")
+        self.pregunta1.setText("")
+        self.respuesta1.setText("")
+        self.pregunta2.setText("")
+        self.respuesta2.setText("")
+        self.pregunta3.setText("")
+        self.respuesta3.setText("")
     def accion_botonEliminar(self):
         # Variable para controlar que se han ingresado los datos correctos:
         self.datosCorrectos = True
@@ -611,7 +609,7 @@ class Ventana4(QMainWindow):
             self.mensaje.setText("Debe seleccionar un usuario con documento valido!")
 
             # Hacemos que la ventana de diálogo se vea:
-            self.ventanaDialogo.exec()
+            self.ventanaDialogo.exec_()
 
             self.metodo_botonVolver()
 
@@ -620,10 +618,10 @@ class Ventana4(QMainWindow):
 
 
             # Creamos la ventana de diálogo para confirmar si vamos a eliminar el registro:
-            self.ventanaDialogo = QDialog(None, QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint)
+            self.ventanaDialogoEliminar = QDialog(None, QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint)
 
             # Definimos el tamaño de la ventana:
-            self.ventanaDialogo.resize(300, 150)
+            self.ventanaDialogoEliminar.resize(300, 150)
 
             # Configuramos la ventana para que sea modal:
             self.ventanaDialogoEliminar.setWindowModality(Qt.ApplicationModal)
@@ -641,7 +639,7 @@ class Ventana4(QMainWindow):
             self.verticalEliminar.addWidget(self.mensajeElimiar)
 
             # Agregamos las opciones de aceptar y cancelar en la ventana de dialogo:
-            self.opcionesEliminar = QDialogButtonBox.Ok | QDialogButtonBox.cancel
+            self.opcionesEliminar = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
             self.opcionesBox = QDialogButtonBox(self.opcionesEliminar)
 
             self.opcionesBox.accepted.connect(self.ok_opcion)
@@ -732,18 +730,23 @@ class Ventana4(QMainWindow):
             self.file.close()
 
             # Si se encontró un usuario con este documento y se ha eliminado:
-            if (
-                    existeDocumento
-            ):
+            if (existeDocumento):
                 # Escribimos el texto explicativo:
                 self.mensaje.setText("Usuario eliminado exitosamente!")
 
                 # Hacemos que la ventana de dialogo se vea:
                 self.ventanaDialogo.exec_()
 
-                self.accion_botonLimpiar
+                self.accion_botonLimpiar()
 
-                self.metodo_botonVolver
+                self.metodo_botonVolver()
+
+    def ok_opcion(self):
+        self.ventanaDialogoEliminar.close()
+        self.eliminar = True
+
+    def cancel_opcion(self):
+        self.ventanaDialogoEliminar.close()
 
     def metodo_botonVolver(self):
         self.hide()
@@ -763,9 +766,6 @@ class Ventana4(QMainWindow):
 
             # Obtenemos del string una lista con 11 datos separados por;
             lista = linea.split(";")
-
-            print(lista)
-            # Se para sí ya no hay más registros en el archivo:
 
             # Se para si ya no hay más registros en el archivo
             if linea == '':
