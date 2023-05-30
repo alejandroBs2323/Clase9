@@ -1,5 +1,4 @@
 manuela jurado;manuela123;123452;1234512345;manuela@gmail.com;como se llama tu mascota;pepe;placa del carro;ASD 345;Año en que murió pepe;2023
-Alejandro Betancur;Alejogay133;1245;1035971398;alejandro@gmail.com;eres gei?;no;nombre de su madre;milena;nombre de su perra;samanta2
 albeiro;albeirosisas;123123;1234567;sisashpta@gmail.com;hola;chao;como estas;bien;si;no
 Lina Maria Gaviria;linaM;linaM;1234231123;lina@elpoli.edu.co;año;2022;pais;colombia;nacionalidad;colombiana
 Wilfer Jurado Hernandez ;WJurtfado38;1342;1035066745;wilfer@gemil.com ;Día de cumpleaños;28 de mayo;Número de la placa de la moto ;ASD45A;Cómo se llama tú esposa;Diana Marcela 
