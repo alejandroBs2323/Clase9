@@ -404,6 +404,20 @@ class Ventana4(QMainWindow):
         # Llamamos el método para que se carguen los datos del usuario en el formulario:
         self.cargar_datos()
 
+    def accion_botonLimpiar(self):
+        self.nombreCompleto.setText("")
+        self.usuario.setText("")
+        self.password.setText("")
+        self.password2.setText("")
+        self.documento.setText("")
+        self.correo.setText("")
+        self.pregunta1.setText("")
+        self.respuesta1.setText("")
+        self.pregunta2.setText("")
+        self.respuesta2.setText("")
+        self.pregunta3.setText("")
+        self.respuesta3.setText("")
+
     def accion_botonEdita(self):
 
         # Variable para controlar que se han ingresado los datos correctos:
@@ -568,19 +582,7 @@ class Ventana4(QMainWindow):
                     break
 
             self.file.close()
-    def accion_botonLimpiar(self):
-        self.nombreCompleto.setText("")
-        self.usuario.setText("")
-        self.password.setText("")
-        self.password2.setText("")
-        self.documento.setText("")
-        self.correo.setText("")
-        self.pregunta1.setText("")
-        self.respuesta1.setText("")
-        self.pregunta2.setText("")
-        self.respuesta2.setText("")
-        self.pregunta3.setText("")
-        self.respuesta3.setText("")
+
     def accion_botonEliminar(self):
         # Variable para controlar que se han ingresado los datos correctos:
         self.datosCorrectos = True
@@ -615,7 +617,6 @@ class Ventana4(QMainWindow):
 
         # Si los datos están correctos:
         if self.datosCorrectos:
-
 
             # Creamos la ventana de diálogo para confirmar si vamos a eliminar el registro:
             self.ventanaDialogoEliminar = QDialog(None, QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint)
@@ -654,92 +655,95 @@ class Ventana4(QMainWindow):
             # Hacemos que la ventana de Diálogo se vea:
             self.ventanaDialogoEliminar.exec_()
 
-        if self.eliminar:
-            # Abrimos el archivo en modo lectura:
-            self.file = open('datos/clientes.txt', 'rb')
-            # Lista vacía para agregar todos los usuarios:
-            usuarios = []
+            if self.eliminar:
+                # Abrimos el archivo en modo lectura:
+                self.file = open('datos/clientes.txt', 'rb')
+                # Lista vacía para agregar todos los usuarios:
+                usuarios = []
 
-            # Iteramos sobre el archivo línea por línea:
-            while self.file:
-                linea = self.file.readline().decode('UTF-8')
+                # Iteramos sobre el archivo línea por línea:
+                while self.file:
+                    linea = self.file.readline().decode('UTF-8')
 
-                # Obtenemos del string una lista con 11 datos separados por;
-                lista = linea.split(";")
+                    # Obtenemos del string una lista con 11 datos separados por;
+                    lista = linea.split(";")
 
-                # Se para si ya no hay más registros en el archivo
-                if linea == '':
-                    break
+                    # Se para si ya no hay más registros en el archivo
+                    if linea == '':
+                        break
 
-                # Creamos un objeto de tipo cliente llamado u:
-                u = Cliente(
-                    lista[0],
-                    lista[1],
-                    lista[2],
-                    lista[3],
-                    lista[4],
-                    lista[5],
-                    lista[6],
-                    lista[7],
-                    lista[8],
-                    lista[9],
-                    lista[10]
+                    # Creamos un objeto de tipo cliente llamado u:
+                    u = Cliente(
+                        lista[0],
+                        lista[1],
+                        lista[2],
+                        lista[3],
+                        lista[4],
+                        lista[5],
+                        lista[6],
+                        lista[7],
+                        lista[8],
+                        lista[9],
+                        lista[10]
 
-                )
+                    )
 
-                # Metemos el objeto en la lista de usuarios:
-                usuarios.append(u)
+                    # Metemos el objeto en la lista de usuarios:
+                    usuarios.append(u)
 
-            # Cerramos el archivo:
-            self.file.close()
+                # Cerramos el archivo:
+                self.file.close()
 
-            # En este punto tenemos la lista usuario con todos los usuarios:
+                # En este punto tenemos la lista usuario con todos los usuarios:
 
-            # Variable para controlar si existe el documento.
-            existeDocumento = False
+                # Variable para controlar si existe el documento.
+                existeDocumento = False
 
-            # Buscamos en la lista usuario por usuario si existe la cédula:
-            for u in usuarios:
-                # Comparamos el documento ingresado:
-                # Si corresponde con el documento, es el usuario correcto:
-                if int(u.documento) == self.cedulaUsuario:
-                    # Eliminamos el usuario de la lista de usuarios:
-                    usuarios.remove(u)
-                    existeDocumento = True
-                    # Paramos el for:
-                    break
+                # Buscamos en la lista usuario por usuario si existe la cédula:
+                for u in usuarios:
+                    # Comparamos el documento ingresado:
+                    # Si corresponde con el documento, es el usuario correcto:
+                    if int(u.documento) == self.cedulaUsuario:
+                        # Eliminamos el usuario de la lista de usuarios:
+                        usuarios.remove(u)
+                        existeDocumento = True
+                        # Paramos el for:
+                        break
 
-            # Abrimos el archivo en modo escritura escribiendo datos en binario
-            self.file = open('datos/clientes.txt', 'wb')
+                # Abrimos el archivo en modo escritura escribiendo datos en binario
+                self.file = open('datos/clientes.txt', 'wb')
 
-            # Recorremos la lista de usuarios
-            # Para guardar los usuarios restantes en el archivo:
-            for u in usuarios:
-                self.file.write(bytes(u.nombreCompleto + ";"
-                                      + u.usuario + ";"
-                                      + u.password + ";"
-                                      + u.documento + ";"
-                                      + u.correo + ";"
-                                      + u.pregunta1 + ";"
-                                      + u.respuesta1 + ";"
-                                      + u.pregunta2 + ";"
-                                      + u.respuesta2 + ";"
-                                      + u.pregunta3 + ";"
-                                      + u.respuesta3, encoding='UTF-8'))
+                # Recorremos la lista de usuarios
+                # Para guardar los usuarios restantes en el archivo:
+                for u in usuarios:
+                    self.file.write(bytes(u.nombreCompleto + ";"
+                                          + u.usuario + ";"
+                                          + u.password + ";"
+                                          + u.documento + ";"
+                                          + u.correo + ";"
+                                          + u.pregunta1 + ";"
+                                          + u.respuesta1 + ";"
+                                          + u.pregunta2 + ";"
+                                          + u.respuesta2 + ";"
+                                          + u.pregunta3 + ";"
+                                          + u.respuesta3, encoding='UTF-8'))
 
-            self.file.close()
+                self.file.close()
 
-            # Si se encontró un usuario con este documento y se ha eliminado:
-            if (existeDocumento):
-                # Escribimos el texto explicativo:
-                self.mensaje.setText("Usuario eliminado exitosamente!")
 
-                # Hacemos que la ventana de dialogo se vea:
-                self.ventanaDialogo.exec_()
+                # Si se encontró un usuario con este documento y se ha eliminado:
+                if (
+                    existeDocumento
+                ):
+                    # Escribimos el texto explicativo:
+                    self.mensaje.setText("Usuario eliminado exitosamente!")
 
-                self.accion_botonLimpiar()
+                    # Hacemos que la ventana de dialogo se vea:
+                    self.ventanaDialogo.exec_()
 
-                self.metodo_botonVolver()
+                    self.accion_botonLimpiar
+
+                    self.metodo_botonVolver
 
     def ok_opcion(self):
         self.ventanaDialogoEliminar.close()
