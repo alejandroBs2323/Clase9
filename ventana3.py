@@ -389,12 +389,12 @@ class Ventana3(QMainWindow):
 
         if filaActual < 0:
             return QMessageBox.warning(self,
-                                       'warning'
+                                       'warning',
                                        'Para ingresar deb seleccionar un registro')
 
         boton = QMessageBox.question(
             self,
-            'confirmation'
+            'confirmation',
             '¿Estás segur@ de que quiere ingresar este nuevo registro?',
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
